@@ -1,0 +1,17 @@
+name: smile
+
+on: push
+
+jobs:
+  super-lint:
+    name: Lint code base
+    runs-on: window-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run smile
+        uses: github/smile@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
